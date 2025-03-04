@@ -11,6 +11,11 @@ import vuetify from 'vite-plugin-vuetify'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/static/', // 设置静态资源基础路径为 /static/
+  build: {
+    outDir: './blog/', // 打包输出目录
+    assetsDir: 'static', // 静态资源目录
+  },
   server: {
     proxy: {
       '/api': {
