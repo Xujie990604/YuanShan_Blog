@@ -1,7 +1,7 @@
 <template>
   <h1>屏幕总宽度为 1080 rem</h1>
-  <div class="width-rem-800">800rem</div>
-  <div class="width-rem-540">540rem</div>
+  <div class="width-rem-400">400rem</div>
+  <div class="width-rem-108">108rem</div>
 </template>
 
 <script lang="ts">
@@ -15,7 +15,7 @@
 </script>
 
 <style scoped lang="scss">
-  $list: (800, red), (540, yellow);
+  $list: (400, red), (108, yellow);
   @mixin line($width, $color) {
     width: $width;
     height: 30px;

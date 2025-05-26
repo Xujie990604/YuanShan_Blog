@@ -1,11 +1,9 @@
 import type { App } from 'vue'
-import ElementPlus from './register-element'
 import globalCpts from './register-global-components'
 import globalData from './register-global-data'
 import routerErrorHandler from './router-error-handler'
 import i18n from '../locales/locales'
 import Vuetify from './register-vuetify'
-import zhuge from './register-zhuge'
 
 import '../assets/css/common.scss' // 引入全局 CSS 文件
 import 'normalize.css' // 引入 格式化 CSS 文件
@@ -17,7 +15,6 @@ import '../assets/css/tailwindcss.css' // 引入 tailwindcss 样式文件
 window.info1 = '在 window 上的全局属性'
 
 export default function (app: App) {
-  app.use(ElementPlus) // 注册 Element 组件库
   // 注册全局组件
   globalCpts.forEach(cpt => {
     app.component(cpt.name, cpt.component)
@@ -26,8 +23,6 @@ export default function (app: App) {
   globalData.forEach(data => {
     app.provide(data.key, data.value)
   })
-  // 全局注册诸葛 io
-  app.provide(zhuge.key, zhuge.value)
   routerErrorHandler(app) // 注册全局错误处理器
   app.config.globalProperties.$info2 = '在 Vue 实例上的全局属性' // 注册全局的变量(不推荐在 Vue3 的选项式中使用，仅是作为演示用)
   app.use(i18n) // 注册 i8n 实例

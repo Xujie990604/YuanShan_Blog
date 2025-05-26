@@ -8,6 +8,11 @@ const router = createRouter({
       redirect: '/home-page',
     },
     {
+      path: '/login',
+      name: 'PageLogin',
+      component: () => import('../views/login/page-login.vue'),
+    },
+    {
       path: '/home-page',
       name: 'HomePage',
       component: () => import('../views/home-page/home-page.vue'),
@@ -51,17 +56,6 @@ const router = createRouter({
           component: () => import('../views/plugins/vueuse/index.vue'),
         },
       ],
-    },
-    {
-      path: '/login',
-      name: 'PageLogin',
-      component: () => import('../views/login/page-login.vue'),
-    },
-    {
-      path: '/back-home',
-      name: 'BackHome',
-      component: () => import('../views/back-manage/back-home.vue'),
-      children: [],
     },
     {
       path: '/:pathMatch(.*)',

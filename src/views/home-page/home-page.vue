@@ -1,36 +1,33 @@
 <template>
   <div class="home-page">
-    <v-container fluid>
+    <v-container class="max-width-container">
       <v-row>
         <v-col cols="12">
           <v-card
-            class="mb-6"
+            class="mb-6 main-card"
             flat
             v-if="!isSubRoute">
             <v-card-item>
               <v-row
                 v-for="(category, index) in mainMenuList"
                 :key="index"
-                class="mb-6">
+                class="mb-10">
                 <v-col cols="12">
-                  <h2 class="text-h5 mb-4">{{ category.title }}</h2>
-                  <v-row>
+                  <div class="category-title">
+                    <h2 class="text-h5 font-weight-medium">{{ category.title }}</h2>
+                  </div>
+                  <v-row
+                    class="mt-4"
+                    justify="start">
                     <v-col
                       v-for="item in category.children"
-                      :key="item.itemName"
+                      :key="item.title"
                       cols="12"
                       sm="6"
                       md="4"
-                      lg="3">
-                      <v-card
-                        @click="turnToRouter(item.itemRouter)"
-                        class="card-hover"
-                        elevation="2"
-                        height="120">
-                        <v-card-item class="d-flex align-center justify-center h-100">
-                          <v-card-title class="text-center">{{ item.itemName }}</v-card-title>
-                        </v-card-item>
-                      </v-card>
+                      lg="4"
+                      class="card-column">
+                      <TutorialCard :item="item" />
                     </v-col>
                   </v-row>
                 </v-col>
@@ -54,9 +51,9 @@
 
 <script lang="ts" setup>
   import { reactive, computed } from 'vue'
-  import { useRouter, useRoute } from 'vue-router'
+  import { useRoute } from 'vue-router'
+  import TutorialCard from './components/TutorialCard.vue'
 
-  const router = useRouter()
   const route = useRoute()
 
   // 判断是否是子路由
@@ -66,31 +63,36 @@
 
   const mainMenuList = reactive([
     {
-      title: 'Vue3 语法使用',
+      title: 'Vue3 语法',
       children: [
         {
-          itemName: '父子组件传参',
+          title: '组件传值',
+          description: 'Vue 的多种组件传值方式',
           itemRouter: 'home',
         },
         {
-          itemName: '语法测试',
+          title: 'Vue 3 语法测试',
+          description: 'Vue 3 语法测试',
           itemRouter: 'vue-test',
         },
       ],
     },
     {
-      title: '三方插件使用',
+      title: '三方工具使用',
       children: [
         {
-          itemName: '多语言',
+          title: 'Vue I18n',
+          description: 'Vue I18n 使用',
           itemRouter: 'vue-i18n',
         },
         {
-          itemName: 'Tailwindcss',
+          title: 'Tailwindcss 使用',
+          description: '探究 CSS 原子化的魅力',
           itemRouter: 'tailwindcss-test',
         },
         {
-          itemName: 'Vue-use-test',
+          title: 'Vue use 使用',
+          description: '领略 Hook 的魅力',
           itemRouter: 'vue-use-test',
         },
       ],
@@ -99,35 +101,47 @@
       title: '项目工程实践',
       children: [
         {
-          itemName: '响应式单位',
+          title: '响应式布局',
+          description: '响应式布局的实现',
           itemRouter: 'rem-size',
         },
         {
-          itemName: '日志打印',
+          title: '日志打印',
+          description: '日志打印的实现',
           itemRouter: 'console-info',
         },
       ],
     },
   ])
-
-  function turnToRouter(itemRouter: string) {
-    router.push(`/home-page/${itemRouter}`)
-  }
 </script>
 
 <style scoped lang="scss">
   .home-page {
     min-height: 100vh;
-    background-color: #f8f9fa;
+    margin: 0 auto;
+    background-color: #fff;
   }
 
-  .card-hover {
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+  .max-width-container {
+    max-width: 1280px !important;
+    margin: 0 auto;
+  }
 
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 20px rgb(0 0 0 / 10%) !important;
-    }
+  .main-card {
+    background-color: transparent !important;
+  }
+
+  .page-title {
+    padding-left: 12px;
+  }
+
+  .category-title {
+    padding-left: 12px;
+    margin-bottom: 12px;
+    border-left: 4px solid #1976d2;
+  }
+
+  .card-column {
+    padding: 8px 12px;
   }
 </style>
