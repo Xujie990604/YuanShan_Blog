@@ -1,21 +1,27 @@
 <!-- eslint-disable vue/no-setup-props-destructure -->
 <template>
-  <div class="home-props-son">
+  <div class="parent-child-props">
     <h2>1. props emits 的使用</h2>
     <span>普通传值的子组件</span>
 
-    <homePropsSun
+    <ParentChildPropsSub
       :userInfo="userInfo"
       :count="count"
-      @update-user-info-sun="$emit('update-user-info')"
-      @update-count-sun="$emit('update-count')"></homePropsSun>
+      @update-user-info-sub="$emit('update-user-info')"
+      @update-count-sub="$emit('update-count')"></ParentChildPropsSub>
   </div>
 </template>
+
+<script lang="ts">
+  export default {
+    name: 'ParentChildProps',
+  }
+</script>
 
 <script lang="ts" setup>
   import { toRefs } from 'vue'
 
-  import homePropsSun from './home-props-sun.vue'
+  import ParentChildPropsSub from './parent-child-props-sub.vue'
 
   interface IProps {
     userInfo: {

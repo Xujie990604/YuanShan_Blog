@@ -5,7 +5,6 @@ import globalData from './register-global-data'
 import routerErrorHandler from './router-error-handler'
 import i18n from '../locales/locales'
 import Vuetify from './register-vuetify'
-import vuetifyIcon from './register-vuetify-icon'
 import zhuge from './register-zhuge'
 
 import '../assets/css/common.scss' // 引入全局 CSS 文件
@@ -32,6 +31,5 @@ export default function (app: App) {
   routerErrorHandler(app) // 注册全局错误处理器
   app.config.globalProperties.$info2 = '在 Vue 实例上的全局属性' // 注册全局的变量(不推荐在 Vue3 的选项式中使用，仅是作为演示用)
   app.use(i18n) // 注册 i8n 实例
-  app.use(Vuetify) // 注册 Vuetify
-  app.use(vuetifyIcon) // 注册 Vuetify 图标
+  app.use(Vuetify) // 注册 Vuetify（已合并图标配置）
 }

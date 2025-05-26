@@ -21,6 +21,12 @@
   </div>
 </template>
 
+<script lang="ts">
+  export default {
+    name: 'I18nDemo',
+  }
+</script>
+
 <script lang="ts" setup>
   import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'

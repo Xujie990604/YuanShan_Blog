@@ -1,5 +1,5 @@
 <template>
-  <div class="home-props-sun">
+  <div class="parent-child-props-sub">
     <span>普通传值的孙组件</span>
     <div
       class="user-info"
@@ -13,6 +13,12 @@
     </div>
   </div>
 </template>
+
+<script lang="ts">
+  export default {
+    name: 'ParentChildPropsSub',
+  }
+</script>
 
 <script lang="ts" setup>
   import { toRefs } from 'vue'
@@ -35,16 +41,16 @@
   const { userInfo, count } = toRefs(props)
 
   const emits = defineEmits<{
-    (e: 'update-user-info-sun'): void
-    (e: 'update-count-sun'): void
+    (e: 'update-user-info-sub'): void
+    (e: 'update-count-sub'): void
   }>()
 
   function updateUserInfo() {
-    emits('update-user-info-sun')
+    emits('update-user-info-sub')
   }
 
   function updateCount() {
-    emits('update-count-sun')
+    emits('update-count-sub')
   }
 </script>
 

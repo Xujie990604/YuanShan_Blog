@@ -3,34 +3,41 @@
   <div class="my-home">Mouse Position is at : {{ x }} {{ y }}</div>
 
   <!-- 1. props emit 的方式来实现跨层级传值，事件 -->
-  <homePropsSon
+  <ParentChildProps
     :userInfo="userInfo"
     :count="count"
     @update-user-info="userInfo.age++"
-    @update-count="count++"></homePropsSon>
+    @update-count="count++"></ParentChildProps>
 
   <!-- 2. 透传的方式来实现跨层级传值，事件 -->
-  <homeAttrsSon
+  <ParentChildAttrs
     :foo="foo"
     :bar="bar"
-    @sun-click="handleSunClick"></homeAttrsSon>
+    @sub-click="handleSubClick"></ParentChildAttrs>
 
   <!-- 3. 依赖注入的方式来实现跨层级传值，事件 -->
-  <homeInjectSon></homeInjectSon>
+  <ParentChildInject></ParentChildInject>
 
   <!--  跳转到后台管理页面-->
   <el-button @click="turnToBackHome">跳转到后台管理页面</el-button>
 </template>
 
+<script lang="ts">
+  export default {
+    name: 'ParentChild',
+  }
+</script>
+
 <script lang="ts" setup>
   import { ref, reactive } from 'vue'
 
   // 组合函数的使用
-  import { useMouse } from './hooks/hook-mouse'
+  import { useMouse } from './hooks/mouse-hook'
   // 鼠标在当前页的坐标
   const { x, y } = useMouse()
+
   // 1. 使用 props emit 的方式来实现跨层级传值，事件
-  import homePropsSon from './cpts/home-props-son.vue'
+  import ParentChildProps from './components/parent-child-props.vue'
   const userInfo = reactive({
     name: 'xujie',
     age: 18,
@@ -39,20 +46,20 @@
   const count = ref(0)
 
   // 2. 使用透传的方式来实现跨层级传值，事件
-  import homeAttrsSon from './cpts/home-attrs-son.vue'
+  import ParentChildAttrs from './components/parent-child-attrs.vue'
   const foo = reactive({
     name: 'foo',
     age: 19,
   })
   const bar = ref('bar')
-  function handleSunClick() {
+  function handleSubClick() {
     foo.age++
   }
 
   // 3. 依赖注入的方式来实现跨层级传值，事件
-  import homeInjectSon from './cpts/home-inject-son.vue'
-  import { injectInfoKey } from './type'
-  import type { IInjectInfo, IUpdateInjectInfo } from './type'
+  import ParentChildInject from './components/parent-child-inject.vue'
+  import { injectInfoKey } from './types'
+  import type { IInjectInfo, IUpdateInjectInfo } from './types'
   import { provide } from 'vue'
 
   const injectInfo: IInjectInfo = reactive({
@@ -76,7 +83,7 @@
 
   //  跳转到后台管理页面
   function turnToBackHome() {
-    router.push('back-home')
+    router.push('/back-home')
   }
 </script>
 

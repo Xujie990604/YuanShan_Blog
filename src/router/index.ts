@@ -5,50 +5,50 @@ const router = createRouter({
   routes: [
     {
       path: '',
-      redirect: '/project-main',
+      redirect: '/home-page',
     },
     {
-      path: '/project-main',
-      name: 'ProjectMain',
-      component: () => import('../views/project-main/project-main.vue'),
+      path: '/home-page',
+      name: 'HomePage',
+      component: () => import('../views/home-page/home-page.vue'),
       children: [
         {
           path: 'home',
           name: 'Home',
-          component: () => import('../views/home/home-item.vue'),
+          component: () => import('../views/vue3-syntax/parent-child/index.vue'),
         },
         {
           path: 'vue-test',
           name: 'VueTest',
-          component: () => import('../views/vue-test/vue-test.vue'),
+          component: () => import('../views/vue3-syntax/syntax-test/index.vue'),
         },
         {
           path: 'vue-i18n',
           name: 'VueI18n',
-          component: () => import('../views/vue-i18n/vue-i18n.vue'),
+          component: () => import('../views/plugins/i18n/index.vue'),
           children: [],
         },
         {
           path: 'rem-size',
           name: 'RemSize',
-          component: () => import('../views/rem-size/rem-size.vue'),
+          component: () => import('../views/practices/responsive/index.vue'),
           children: [],
         },
         {
           path: 'console-info',
           name: 'ConsoleInfo',
-          component: () => import('../views/console-info/console-info.vue'),
+          component: () => import('../views/practices/logging/index.vue'),
           children: [],
         },
         {
           path: 'tailwindcss-test',
           name: 'Tailwindcss-test',
-          component: () => import('../views/tailwindcss-test/tailwindcss-test.vue'),
+          component: () => import('../views/plugins/tailwindcss/index.vue'),
         },
         {
           path: 'vue-use-test',
           name: 'Vue-use-test',
-          component: () => import('../views/vueuse-test/vue-use-test.vue'),
+          component: () => import('../views/plugins/vueuse/index.vue'),
         },
       ],
     },

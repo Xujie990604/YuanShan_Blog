@@ -12,7 +12,6 @@ export interface IUpdateInjectInfo {
 }
 
 // 依赖注入值 + 修改注入值函数 的类型
-
 export interface IInjectInfoAll {
   injectInfo: IInjectInfo
   updateInjectInfo: IUpdateInjectInfo

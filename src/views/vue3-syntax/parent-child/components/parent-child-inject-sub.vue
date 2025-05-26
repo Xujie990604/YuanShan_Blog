@@ -1,20 +1,26 @@
 <template>
-  <div class="home-inject-sun">
+  <div class="parent-child-inject-sub">
     依赖注入的孙组件
     <div
       class="content"
-      @click="injectSunClick">
+      @click="injectSubClick">
       依赖注入的Count: {{ injectInfo }}
     </div>
   </div>
 </template>
 
+<script lang="ts">
+  export default {
+    name: 'ParentChildInjectSub',
+  }
+</script>
+
 <script lang="ts" setup>
-  import { injectInfoKey, injectInfoClass } from '../type'
-  // import type { IInjectInfoAll } from '../type'
+  import { injectInfoKey, injectInfoClass } from '../types'
+  // import type { IInjectInfoAll } from '../types'
   import { inject } from 'vue'
 
-  function injectSunClick() {
+  function injectSubClick() {
     updateInjectInfo()
   }
 

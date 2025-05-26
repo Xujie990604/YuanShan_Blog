@@ -4,6 +4,12 @@
   <div>{{ state.baz }}</div>
 </template>
 
+<script lang="ts">
+  export default {
+    name: 'SyntaxTest',
+  }
+</script>
+
 <script lang="ts" setup>
   import { reactive, ref, toRefs } from 'vue'
 

@@ -4,7 +4,15 @@
   <div class="width-rem-540">540rem</div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts">
+  export default {
+    name: 'ResponsiveDemo',
+  }
+</script>
+
+<script lang="ts" setup>
+  // setup 逻辑
+</script>
 
 <style scoped lang="scss">
   $list: (800, red), (540, yellow);

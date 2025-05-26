@@ -1,11 +1,17 @@
 <template>
-  <div class="home-sun">透传的孙组件</div>
+  <div class="parent-child-attrs-sub">透传的孙组件</div>
   <div
     class="text"
-    @click="$emit('sun-click')">
+    @click="$emit('sub-click')">
     foo: {{ foo }}
   </div>
 </template>
+
+<script lang="ts">
+  export default {
+    name: 'ParentChildAttrsSub',
+  }
+</script>
 
 <script lang="ts" setup>
   interface IProps {
@@ -24,10 +30,10 @@
     }),
   })
 
-  // 在当前页面中使用 emit 声明 ‘sun-click’ 事件
+  // 在当前页面中使用 emit 声明 'sub-click' 事件
   // 代表在当前页面消费掉了这个透传的事件
   defineEmits<{
-    (e: 'sun-click'): void
+    (e: 'sub-click'): void
   }>()
 </script>
 

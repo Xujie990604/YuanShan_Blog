@@ -3,7 +3,7 @@
     <div class="shrink-0">
       <img
         class="h-12 w-12"
-        src="../../assets/images/login-bg.svg"
+        src="../../../assets/images/login-bg.svg"
         alt="ChitChat Logo" />
     </div>
     <div>
@@ -12,6 +12,12 @@
     </div>
   </div>
 </template>
+
+<script lang="ts">
+  export default {
+    name: 'TailwindDemo',
+  }
+</script>
 
 <script lang="ts" setup></script>
 

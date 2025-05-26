@@ -3,8 +3,14 @@
   <v-btn text="sss"> </v-btn>
 </template>
 
+<script lang="ts">
+  export default {
+    name: 'LoggingDemo',
+  }
+</script>
+
 <script lang="ts" setup>
-  import appLog from '@/hook/appLog'
+  import appLog from '../../../hook/appLog'
   const Log = appLog()
   const data = {
     code: '200',
