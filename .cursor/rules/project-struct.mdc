@@ -1,0 +1,106 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# YuanShan_Blog 项目结构规范
+
+## 项目技术栈
+
+### 核心框架
+- Vue 3.3.4 + TypeScript 4.9.5 - 主要开发框架
+- Vite 4.3.5 - 构建工具和开发服务器
+- Vuetify 3.6.10 - UI 组件库
+- Vue Router 4.1.6 - 路由管理
+- Pinia 2.0.35 - 状态管理
+
+### 样式处理
+- SCSS - CSS 预处理器
+- Tailwind CSS 3.4.4 - 原子化 CSS 框架
+- PostCSS - CSS 后处理器
+- Autoprefixer - 自动添加浏览器前缀
+
+## 目录结构规范
+
+### 根目录文件
+- [package.json](mdc:package.json) - 项目配置和依赖管理
+- [vite.config.ts](mdc:vite.config.ts) - Vite 构建配置
+- [tsconfig.json](mdc:tsconfig.json) - TypeScript 配置
+- [tailwind.config.js](mdc:tailwind.config.js) - Tailwind CSS 配置
+- [index.html](mdc:index.html) - 应用入口 HTML
+
+### 核心源码目录 (src/)
+- [main.ts](mdc:src/main.ts) - 应用入口文件
+- [App.vue](mdc:src/App.vue) - 根组件
+- views/ - 页面组件目录
+  - home-page/ - 首页
+  - vue3-syntax/ - Vue3 语法学习页面
+  - plugins/ - 插件页面
+  - practices/ - 实践页面
+  - login/ - 登录页面
+  - not-found/ - 404 页面
+
+- components/ - 业务组件目录
+- baseUI/ - 基础 UI 组件目录
+- router/ - 路由配置
+  - [index.ts](mdc:src/router/index.ts) - 路由主配置文件
+- stores/ - Pinia 状态管理
+  - userInfo/ - 用户信息状态
+- utils/ - 全局范围的工具函数
+  - [tools.ts](mdc:src/utils/tools.ts) - 工具函数集合
+- service/ - API 服务层
+- locales/ - 国际化文件
+- config/ - 配置文件
+- constant/ - 常量定义
+- hook/ - 自定义 Vue3 Hooks
+- global/ - 全局配置
+- assets/ - 静态资源
+   - css/ - css 文件
+      - [common.scss](mdc:src/assets/css/common.scss) 用于定义通用的 CSS 选择器
+      - [settings.scss](mdc:src/assets/css/settings.scss) 用于自定义 Vuetify 组件中使用的 SCSS 变量
+   - doc/ - 项目中使用的文档：text、pdf等
+   - images/ - 项目中使用的图片
+
+## 代码质量工具配置
+
+### ESLint 配置
+- 配置文件：[.eslintrc.cjs](mdc:.eslintrc.cjs)
+
+### Prettier 格式化
+- 配置文件：[.prettierrc.cjs](mdc:.prettierrc.cjs)
+
+### Stylelint 样式检查
+- 配置文件：[.stylelintrc.cjs](mdc:.stylelintrc.cjs)
+- 集成 Tailwind CSS 规则
+
+### 编辑器配置
+- 配置文件：[.editorconfig](mdc:.editorconfig)
+
+## 命名规范
+
+### 目录命名
+- kebab-case
+- 功能导向: 目录名直接反映功能用途
+
+### 文件命名
+- Vue 组件: kebab-case 
+- TypeScript 文件: kebab-case 
+- 配置文件: 遵循工具约定 (.eslintrc.cjs, vite.config.ts)
+
+### 组件命名
+- 组件目录: kebab-case (search-box, my-header)
+- 组件类名: PascalCase
+- Props/Events: camelCase
+
+
+## 注意事项
+
+### 已知问题
+
+### 最佳实践
+1. 新增页面放在 views/ 目录下
+2. 可复用组件放在 baseUI/ 或 components/ 目录
+3. 业务逻辑封装为 composables 放在 hook/ 目录
+4. API 调用统一在 service/ 目录管理
+5. 使用 TypeScript 严格模式，确保类型安全
+6. 遵循 Vue 3 Composition API 最佳实践

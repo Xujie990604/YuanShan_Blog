@@ -1,0 +1,18 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# YuanShan_Blog 项目
+
+## 项目概述
+
+1. 这是一个基于 Vue3 + TS  + Vite4 + Vuetify + scss 的前端工程师学习项目
+2. 用来学习 Vue3、TS 语法和特性
+3. 用来学习 前端开发过程中的知识点。例如, 响应式、VueUse、前端日志、响应式布局
+
+
+
+
+
+  
